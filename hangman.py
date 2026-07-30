@@ -38,6 +38,31 @@ hangman_art = {
         "/ \\"
     )
 }
+
+start_art = """
+ _   _    _    _   _  ____ __  __    _    _   _ 
+| | | |  / \  | \ | |/ ___|  \/  |  / \  | \ | |
+| |_| | / _ \ |  \| | |  _| |\/| | / _ \ |  \| |
+|  _  |/ ___ \| |\  | |_| | |  | |/ ___ \| |\  |
+|_| |_/_/   \_\_| \_|\____|_|  |_/_/   \_\_| \_|
+"""
+
+win_art = """
+__   __           __        ___       _ 
+\ \ / /__  _   _  \ \      / (_)_ __ | |
+ \ V / _ \| | | |  \ \ /\ / /| | '_ \| |
+  | | (_) | |_| |   \ V  V / | | | | |_|
+  |_|\___/ \__,_|    \_/\_/  |_|_| |_(_)
+"""
+
+lose_art = """
+__   __            _                    _ 
+\ \ / /__  _   _  | |    ___  __ _  ___| |
+ \ V / _ \| | | | | |   / _ \/ _` |/ _ \ |
+  | | (_) | |_| | | |__|  __/ (_| |  __/ |
+  |_|\___/ \__,_| |_____\___|\__, |\___|_|
+                            |___/        
+"""
 words =("apple", "banana", "melon", "strawberry", "pineapple")
 def display_man(Wrong_Guesses):
     print("#######################")
@@ -53,6 +78,7 @@ def display_hint(hint):
 def display_ans(answer):
     print(" ".join(answer))
 def main():
+    print(start_art)
     answer = random.choice(words)
     
     hint =["_"]*len(answer)
@@ -87,14 +113,14 @@ def main():
             display_man(wrong_guesses)
             display_ans(answer)
             
-            print("\n\nYou won !!!!")
+            print(win_art)
             is_runnig=False
             
         
         
         if wrong_guesses==6:
             display_man(wrong_guesses)
-            print(f"Game ower !!!!  {answer}  was correct answer")
+            print(f"\n{lose_art}\nThe correct word was: {answer}")
             is_runnig=False
                   
 if __name__ == "__main__":
